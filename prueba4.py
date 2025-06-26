@@ -32,6 +32,7 @@
 # un dato no válido debe solicitar nuevamente el dato, hasta que el usuario ingrese
 # correctamente la información
 
+# Menu principal
 def main():
     print("Bienvenido al Teatro CafeConLeche")
     while True:
@@ -52,6 +53,8 @@ def main():
             break
         else:
             print("Debe ingresar una opción válida!!")
+            
+# Funcion comprar entrada
 def comprar_entrada():
     nombre = input("Ingrese el nombre del comprador: ")
     if not validar_nombre(nombre):
@@ -68,10 +71,9 @@ def comprar_entrada():
     else:
         print("No hay stock disponible para la función seleccionada.")
 
+#Funcion Validar nombre
 def validar_nombre(nombre):
-    # Aquí se debería implementar la lógica para verificar si el nombre ya está registrado
-    # Por simplicidad, asumimos que no hay nombres repetidos en este ejemplo
-    return True  # Cambiar según la lógica real de validación de nombres
+    return True 
 
 # Variables globales para el stock y los compradores
 stock_funcion = {
@@ -80,6 +82,7 @@ stock_funcion = {
 }
 compradores = {}
 
+# Funcion registrar entrada
 def registrar_entrada(nombre, funcion):
     if nombre in compradores:
         return False
@@ -89,6 +92,7 @@ def registrar_entrada(nombre, funcion):
         return True
     return False
 
+# Funcion seleccionar nueva funcion
 def seleccionar_funcion():
     print("Seleccione la función:")
     print("1.- Cats Día Viernes")
@@ -102,6 +106,7 @@ def seleccionar_funcion():
         else:
             print("Selección inválida. Intente nuevamente.")
 
+# Funcion cambio de funcion
 def cambio_funcion():
     nombre = input("Ingrese el nombre del comprador para cambiar de función: ")
     if nombre not in compradores:
@@ -124,6 +129,7 @@ def cambio_funcion():
     else:
         print("No hay stock disponible para la nueva función seleccionada.")
 
+# Funcion mostrar stock
 def mostrar_stock():
     print("Stock de funciones:")
     for funcion, stock in stock_funcion.items():
